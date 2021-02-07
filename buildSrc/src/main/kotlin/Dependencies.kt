@@ -2,6 +2,7 @@ import java.io.File
 import java.util.concurrent.TimeUnit
 
 const val KOTLIN_VERSION = "1.4.21"
+const val HILT_VERSION = "2.31.2-alpha"
 
 object PortfolioVersions {
     var VERSION_NAME_BUILD_NUMBER = generateVersionCode()
@@ -16,16 +17,19 @@ var PORTFOLIO_VERSION_NAME = "${PortfolioVersions.VERSION_NAME_MAJOR}.${Portfoli
 
 object PluginClassPaths {
     object Versions {
-        const val GRADLE_BUILD_VERSION = "4.0.0"
+        const val GRADLE_BUILD_VERSION = "4.1.2"
     }
 
     const val PLUGIN_CLASSPATH_ANDROID_GRADLE = "com.android.tools.build:gradle:${Versions.GRADLE_BUILD_VERSION}"
     const val PLUGIN_CLASSPATH_KOTLIN_GRADLE = "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION"
+    const val PLUGIN_CLASSPATH_HILT = "com.google.dagger:hilt-android-gradle-plugin:$HILT_VERSION"
 }
 
 object Plugins {
     const val PLUGINS_ANDROID_APPLICATION = "com.android.application"
     const val PLUGINS_KOTLIN_ANDROID = "kotlin-android"
+    const val KOTLIN_KAPT = "kotlin-kapt"
+    const val PLUGINS_HILT = "dagger.hilt.android.plugin"
 }
 
 object AndroidSdk {
@@ -52,10 +56,14 @@ object ExternalLibraries {
     object Versions {
         // external dependency versions
         const val MATERIAL_DESIGN_VERSION = "1.2.0"
+        const val TIMBER_VERSION = "4.7.1"
     }
 
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
     const val MATERIAL_DESIGN = "com.google.android.material:material:${Versions.MATERIAL_DESIGN_VERSION}"
+    const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER_VERSION}"
+    const val HILT_ANDROID = "com.google.dagger:hilt-android:$HILT_VERSION"
+    const val HILT_ANDROID_COMPILER = "com.google.dagger:hilt-android-compiler:$HILT_VERSION"
 }
 
 object TestLibraries {

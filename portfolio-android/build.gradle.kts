@@ -1,6 +1,8 @@
 plugins {
     id(Plugins.PLUGINS_ANDROID_APPLICATION)
     id(Plugins.PLUGINS_KOTLIN_ANDROID)
+    id(Plugins.PLUGINS_HILT)
+    id(Plugins.KOTLIN_KAPT)
 }
 
 android {
@@ -58,6 +60,11 @@ dependencies {
     // External Dependencies
     implementation(ExternalLibraries.KOTLIN)
     implementation(ExternalLibraries.MATERIAL_DESIGN)
+    implementation(ExternalLibraries.TIMBER)
+    implementation(ExternalLibraries.HILT_ANDROID)
+
+    // Annotation Processor Dependencies
+    kapt(ExternalLibraries.HILT_ANDROID_COMPILER)
 
     // Unit Test Dependencies
     implementation(TestLibraries.JUNIT)
