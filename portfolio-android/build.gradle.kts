@@ -70,6 +70,6 @@ dependencies {
     implementation(TestLibraries.JUNIT)
 
     // UI Test Dependencies Dependencies
-    androidTestImplementation(AndroidTestLibraries.JNUIT_TEST_EXT)
+    androidTestImplementation(AndroidTestLibraries.JUNIT_TEST_EXT)
     androidTestImplementation(AndroidTestLibraries.ESPRESSO_CORE)
 }

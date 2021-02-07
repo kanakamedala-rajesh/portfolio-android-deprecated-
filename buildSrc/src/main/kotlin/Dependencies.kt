@@ -55,7 +55,7 @@ object AndroidxLibraries {
 object ExternalLibraries {
     object Versions {
         // external dependency versions
-        const val MATERIAL_DESIGN_VERSION = "1.2.0"
+        const val MATERIAL_DESIGN_VERSION = "1.3.0"
         const val TIMBER_VERSION = "4.7.1"
     }
 
@@ -79,10 +79,10 @@ object AndroidTestLibraries {
     private object Versions {
         // android test dependency version
         const val ESPRESSO_CORE_VERSION = "3.2.0"
-        const val JNUIT_TEST_EXT_VERSION = "1.1.1"
+        const val JUNIT_TEST_EXT_VERSION = "1.1.1"
     }
 
-    const val JNUIT_TEST_EXT = "androidx.test.ext:junit:${Versions.JNUIT_TEST_EXT_VERSION}"
+    const val JUNIT_TEST_EXT = "androidx.test.ext:junit:${Versions.JUNIT_TEST_EXT_VERSION}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE_VERSION}"
 }
 
