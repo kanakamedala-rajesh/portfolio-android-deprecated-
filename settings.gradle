@@ -1,0 +1,2 @@
+include ':portfolio-android'
+rootProject.name = "portfolio"
