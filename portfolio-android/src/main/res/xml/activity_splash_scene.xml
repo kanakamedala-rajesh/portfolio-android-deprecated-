@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:autoTransition="animateToEnd"
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="2500">
+        <KeyFrameSet>
+            <!-- Position 0 -->
+            <KeyAttribute
+                android:scaleX="1.2"
+                motion:framePosition="0"
+                motion:motionTarget="@+id/iv_logo" />
+            <KeyAttribute
+                android:scaleY="1.2"
+                motion:framePosition="0"
+                motion:motionTarget="@+id/iv_logo" />
+
+            <!-- Position 40 -->
+            <KeyAttribute
+                android:scaleX="0.7"
+                motion:framePosition="40"
+                motion:motionTarget="@+id/iv_logo" />
+            <KeyAttribute
+                android:scaleY="0.7"
+                motion:framePosition="40"
+                motion:motionTarget="@+id/iv_logo" />
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="40"
+                motion:motionTarget="@+id/iv_logo" />
+
+            <!-- Position 100 -->
+            <KeyAttribute
+                android:scaleX="50"
+                motion:framePosition="100"
+                motion:motionTarget="@+id/iv_logo" />
+            <KeyAttribute
+                android:scaleY="50"
+                motion:framePosition="100"
+                motion:motionTarget="@+id/iv_logo" />
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="100"
+                motion:motionTarget="@+id/iv_logo" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start" >
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:id="@+id/iv_logo" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end" />
+</MotionScene>

@@ -16,6 +16,7 @@ android {
         versionCode = PORTFOLIO_VERSION_CODE
         versionName = PORTFOLIO_VERSION_NAME
 
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -49,6 +50,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -56,6 +61,7 @@ dependencies {
     implementation(AndroidxLibraries.CORE_KTX)
     implementation(AndroidxLibraries.APP_COMPAT)
     implementation(AndroidxLibraries.CONSTRAINT_LAYOUT)
+    implementation(AndroidxLibraries.ACTIVITY_KTX)
 
     // External Dependencies
     implementation(ExternalLibraries.KOTLIN)

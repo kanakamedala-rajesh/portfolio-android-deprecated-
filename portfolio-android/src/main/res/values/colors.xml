@@ -6,9 +6,8 @@
     <color name="secondaryColor">#00f2A2</color>
     <color name="secondaryLightColor">#69FFD4</color>
     <color name="secondaryDarkColor">#00BE73</color>
-    <color name="primaryTextColor">#000000</color>
-    <color name="secondaryTextColor">#000000</color>
 
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="transparentColor">#0000FFFF</color>
 </resources>

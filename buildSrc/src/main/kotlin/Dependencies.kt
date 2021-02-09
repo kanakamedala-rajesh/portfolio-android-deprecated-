@@ -42,14 +42,16 @@ object AndroidSdk {
 object AndroidxLibraries {
     private object Versions {
         //androidx dependency version
-        const val APP_COMPAT_VERSION = "1.1.0"
-        const val CORE_KTX_VERSION = "1.2.0"
-        const val CONSTRAINT_LAYOUT_VERSION = "1.1.3"
+        const val APP_COMPAT_VERSION = "1.2.0"
+        const val CORE_KTX_VERSION = "1.3.2"
+        const val CONSTRAINT_LAYOUT_VERSION = "2.0.4"
+        const val ACTIVITY_KTX_VERSION = "1.1.0"
     }
 
     const val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.APP_COMPAT_VERSION}"
     const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX_VERSION}"
     const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT_VERSION}"
+    const val ACTIVITY_KTX = "androidx.activity:activity-ktx:${Versions.ACTIVITY_KTX_VERSION}"
 }
 
 object ExternalLibraries {
@@ -78,11 +80,11 @@ object TestLibraries {
 object AndroidTestLibraries {
     private object Versions {
         // android test dependency version
-        const val ESPRESSO_CORE_VERSION = "3.2.0"
-        const val JUNIT_TEST_EXT_VERSION = "1.1.1"
+        const val ESPRESSO_CORE_VERSION = "3.3.0"
+        const val JUNIT_TEST_EXT_VERSION = "1.1.2"
     }
 
-    const val JUNIT_TEST_EXT = "androidx.test.ext:junit:${Versions.JUNIT_TEST_EXT_VERSION}"
+    const val JUNIT_TEST_EXT = "androidx.test.ext:junit-ktx:${Versions.JUNIT_TEST_EXT_VERSION}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE_VERSION}"
 }
 
