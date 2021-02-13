@@ -1,5 +1,6 @@
 package com.venkatasudha.portfolio.di
 
+import com.google.firebase.auth.FirebaseAuth
 import com.venkatasudha.portfolio.data.LoginDataSource
 import com.venkatasudha.portfolio.data.LoginRepository
 import dagger.Module
@@ -16,7 +17,7 @@ object LoginModule {
     }
 
     @Provides
-    fun provideLoginDataSource(): LoginDataSource {
-        return LoginDataSource()
+    fun provideLoginDataSource(auth: FirebaseAuth): LoginDataSource {
+        return LoginDataSource(auth)
     }
 }

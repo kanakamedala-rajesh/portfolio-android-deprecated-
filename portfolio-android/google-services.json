@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "218085913482",
+    "firebase_url": "https://rajesh-kanakamedala-default-rtdb.firebaseio.com",
+    "project_id": "rajesh-kanakamedala",
+    "storage_bucket": "rajesh-kanakamedala.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218085913482:android:c4de2a8fa54686d5ce0e73",
+        "android_client_info": {
+          "package_name": "com.venkatasudha.portfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "218085913482-44vpos456nuicdabbonstotb85l3nfvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbjmlLmEynuEJXi8cNqbYgx4CMuM9_XGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "218085913482-44vpos456nuicdabbonstotb85l3nfvr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

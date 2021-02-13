@@ -5,7 +5,8 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryLightColor</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/black</item>
 
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondaryColor</item>
@@ -17,7 +18,7 @@
 
         <!-- Customize your theme here. -->
         <item name="android:windowFullscreen">true</item>
-        <item name="background">@color/primaryColor</item>
+        <item name="background">?attr/colorPrimary</item>
         <item name="fontFamily">@font/cantata_one</item>
     </style>
 </resources>

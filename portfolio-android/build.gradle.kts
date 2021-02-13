@@ -2,7 +2,8 @@ plugins {
     id(Plugins.PLUGINS_ANDROID_APPLICATION)
     id(Plugins.PLUGINS_KOTLIN_ANDROID)
     id(Plugins.PLUGINS_HILT)
-    id(Plugins.KOTLIN_KAPT)
+    id(Plugins.PLUGINS_KOTLIN_KAPT)
+    id(Plugins.PLUGINS_GOOGLE_SERVICES)
 }
 
 android {
@@ -68,6 +69,10 @@ dependencies {
     implementation(ExternalLibraries.MATERIAL_DESIGN)
     implementation(ExternalLibraries.TIMBER)
     implementation(ExternalLibraries.HILT_ANDROID)
+
+    // Firebase Dependencies
+    implementation(platform(ExternalLibraries.FIREBASE_BOM))
+    implementation(ExternalLibraries.FIREBASE_AUTH_KTX)
 
     // Annotation Processor Dependencies
     kapt(ExternalLibraries.HILT_ANDROID_COMPILER)

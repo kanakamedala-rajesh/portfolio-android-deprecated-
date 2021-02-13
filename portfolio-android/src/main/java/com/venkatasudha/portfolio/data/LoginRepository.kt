@@ -9,7 +9,7 @@ import javax.inject.Inject
  * maintains an in-memory cache of login status and user credentials information.
  */
 
-class LoginRepository @Inject constructor(val dataSource: LoginDataSource) {
+class LoginRepository @Inject constructor(private val dataSource: LoginDataSource) {
 
     // in-memory cache of the loggedInUser object
     var user: LoggedInUser? = null

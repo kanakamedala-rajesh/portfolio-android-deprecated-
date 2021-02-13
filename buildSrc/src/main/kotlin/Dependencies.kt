@@ -18,18 +18,21 @@ var PORTFOLIO_VERSION_NAME = "${PortfolioVersions.VERSION_NAME_MAJOR}.${Portfoli
 object PluginClassPaths {
     object Versions {
         const val GRADLE_BUILD_VERSION = "4.1.2"
+        const val GOOGLE_SERVICES_VERSION = "4.3.5"
     }
 
     const val PLUGIN_CLASSPATH_ANDROID_GRADLE = "com.android.tools.build:gradle:${Versions.GRADLE_BUILD_VERSION}"
     const val PLUGIN_CLASSPATH_KOTLIN_GRADLE = "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION"
     const val PLUGIN_CLASSPATH_HILT = "com.google.dagger:hilt-android-gradle-plugin:$HILT_VERSION"
+    const val PLUGIN_CLASSPATH_GOOGLE_SERVICES = "com.google.gms:google-services:${Versions.GOOGLE_SERVICES_VERSION}"
 }
 
 object Plugins {
     const val PLUGINS_ANDROID_APPLICATION = "com.android.application"
     const val PLUGINS_KOTLIN_ANDROID = "kotlin-android"
-    const val KOTLIN_KAPT = "kotlin-kapt"
+    const val PLUGINS_KOTLIN_KAPT = "kotlin-kapt"
     const val PLUGINS_HILT = "dagger.hilt.android.plugin"
+    const val PLUGINS_GOOGLE_SERVICES = "com.google.gms.google-services"
 }
 
 object AndroidSdk {
@@ -59,6 +62,7 @@ object ExternalLibraries {
         // external dependency versions
         const val MATERIAL_DESIGN_VERSION = "1.3.0"
         const val TIMBER_VERSION = "4.7.1"
+        const val FIREBASE_BOM_VERSION = "26.4.0"
     }
 
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
@@ -66,6 +70,8 @@ object ExternalLibraries {
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER_VERSION}"
     const val HILT_ANDROID = "com.google.dagger:hilt-android:$HILT_VERSION"
     const val HILT_ANDROID_COMPILER = "com.google.dagger:hilt-android-compiler:$HILT_VERSION"
+    const val FIREBASE_BOM = "com.google.firebase:firebase-bom:${Versions.FIREBASE_BOM_VERSION}"
+    const val FIREBASE_AUTH_KTX = "com.google.firebase:firebase-auth-ktx"
 }
 
 object TestLibraries {

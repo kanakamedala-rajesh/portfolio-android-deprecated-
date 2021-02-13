@@ -75,19 +75,22 @@ class LoginActivity : AppCompatActivity() {
             setOnEditorActionListener { _, actionId, _ ->
                 when (actionId) {
                     EditorInfo.IME_ACTION_DONE ->
-                        loginViewModel.login(
-                            binding.username.text.toString(),
-                            binding.password.text.toString()
-                        )
+                        if (binding.login.isEnabled) {
+                            performLogin()
+                        }
                 }
                 false
             }
-
-            binding.login.setOnClickListener {
-                binding.loading.visibility = View.VISIBLE
-                loginViewModel.login(binding.username.text.toString(), binding.password.text.toString())
-            }
         }
+
+        binding.login.setOnClickListener {
+            performLogin()
+        }
+    }
+
+    private fun performLogin() {
+        binding.loading.visibility = View.VISIBLE
+        loginViewModel.login(binding.username.text.toString(), binding.password.text.toString())
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {

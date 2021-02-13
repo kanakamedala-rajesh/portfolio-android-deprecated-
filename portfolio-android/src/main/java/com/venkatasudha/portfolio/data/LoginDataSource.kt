@@ -1,5 +1,6 @@
 package com.venkatasudha.portfolio.data
 
+import com.google.firebase.auth.FirebaseAuth
 import com.venkatasudha.portfolio.entities.LoggedInUser
 import com.venkatasudha.portfolio.entities.Result
 import java.io.IOException
@@ -9,7 +10,7 @@ import javax.inject.Inject
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
-class LoginDataSource @Inject constructor() {
+class LoginDataSource @Inject constructor(private val auth: FirebaseAuth) {
 
     fun login(username: String, password: String): Result<LoggedInUser> {
         try {
