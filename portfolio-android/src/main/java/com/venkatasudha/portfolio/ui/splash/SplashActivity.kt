@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
@@ -12,12 +13,14 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.venkatasudha.portfolio.R
 import com.venkatasudha.portfolio.ui.login.LoginActivity
+import com.venkatasudha.portfolio.ui.profile.ProfileActivity
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
     private var systemUIVisible = true
+    private val splashViewModel: SplashViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +46,14 @@ class SplashActivity : AppCompatActivity() {
 
             override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
                 Timber.d("onTransitionCompleted, p1: $p1")
-                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                splashViewModel.currentUser.observe(this@SplashActivity, {
+                    if (null != it) {
+                        Timber.d("logged in as: ${it.email}")
+                        startActivity(Intent(this@SplashActivity, ProfileActivity::class.java))
+                    } else {
+                        startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                    }
+                })
             }
 
             override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {

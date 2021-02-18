@@ -1,7 +1,8 @@
 package com.venkatasudha.portfolio.data
 
-import com.venkatasudha.portfolio.entities.LoggedInUser
-import com.venkatasudha.portfolio.entities.Result
+import com.google.firebase.auth.FirebaseUser
+import com.venkatasudha.portfolio.entities.NetworkRequestStates
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**
@@ -10,17 +11,13 @@ import javax.inject.Inject
  */
 
 class LoginRepository @Inject constructor(private val dataSource: LoginDataSource) {
-
-    // in-memory cache of the loggedInUser object
-    var user: LoggedInUser? = null
+    var user: FirebaseUser? = null
         private set
 
     val isLoggedIn: Boolean
         get() = user != null
 
     init {
-        // If user credentials will be cached in local storage, it is recommended it be encrypted
-        // @see https://developer.android.com/training/articles/keystore
         user = null
     }
 
@@ -29,20 +26,11 @@ class LoginRepository @Inject constructor(private val dataSource: LoginDataSourc
         dataSource.logout()
     }
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
-        // handle login
-        val result = dataSource.login(username, password)
-
-        if (result is Result.Success) {
-            setLoggedInUser(result.data)
-        }
-
-        return result
+    suspend fun performLogin(email: String, password: String): Flow<NetworkRequestStates<FirebaseUser>> {
+        return dataSource.emailLogin(email, password)
     }
 
-    private fun setLoggedInUser(loggedInUser: LoggedInUser) {
+    private fun setLoggedInUser(loggedInUser: FirebaseUser) {
         this.user = loggedInUser
-        // If user credentials will be cached in local storage, it is recommended it be encrypted
-        // @see https://developer.android.com/training/articles/keystore
     }
 }

@@ -9,7 +9,7 @@ Portfolio is an open source application to create resume kind of portfolio.
 # android-application module
 
 This module includes all code related to android application.
-- `Build System`  - Gradle DSL
+- `Build System`  - Gradle Kotlin DSL
  
 # GIT branches
 | Branch | Description | GITHUB Link |
@@ -18,5 +18,5 @@ This module includes all code related to android application.
 | release | branch where release ready code resides | https://github.com/kanakamedala-rajesh/portfolio/tree/release |
 | dev | branch where current development code resides | https://github.com/kanakamedala-rajesh/portfolio/tree/dev |
 
-# License
+# [License](https://github.com/kanakamedala-rajesh/portfolio/blob/dev/MIT-LICENSE.txt)
 The source code for the site is licensed under the MIT license, which you can find in the MIT-LICENSE.txt file.

@@ -63,6 +63,8 @@ object ExternalLibraries {
         const val MATERIAL_DESIGN_VERSION = "1.3.0"
         const val TIMBER_VERSION = "4.7.1"
         const val FIREBASE_BOM_VERSION = "26.4.0"
+        const val LEAK_CANARY_VERSION = "2.6"
+        const val COROUTINES_VERSION = "1.3.9"
     }
 
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
@@ -72,6 +74,10 @@ object ExternalLibraries {
     const val HILT_ANDROID_COMPILER = "com.google.dagger:hilt-android-compiler:$HILT_VERSION"
     const val FIREBASE_BOM = "com.google.firebase:firebase-bom:${Versions.FIREBASE_BOM_VERSION}"
     const val FIREBASE_AUTH_KTX = "com.google.firebase:firebase-auth-ktx"
+    const val LEAK_CANARY = "com.squareup.leakcanary:leakcanary-android:${Versions.LEAK_CANARY_VERSION}"
+    const val COROUTINES_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES_VERSION}"
+    const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES_VERSION}"
+    const val COROUTINES_PLAY_SERVICES = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.COROUTINES_VERSION}"
 }
 
 object TestLibraries {

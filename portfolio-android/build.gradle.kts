@@ -57,6 +57,13 @@ android {
     }
 }
 
+configurations {
+    // fix for Leak Canary issue.
+    debugImplementation {
+        exclude("junit", "junit")
+    }
+}
+
 dependencies {
     // AndroidX Dependencies
     implementation(AndroidxLibraries.CORE_KTX)
@@ -69,6 +76,8 @@ dependencies {
     implementation(ExternalLibraries.MATERIAL_DESIGN)
     implementation(ExternalLibraries.TIMBER)
     implementation(ExternalLibraries.HILT_ANDROID)
+    implementation(ExternalLibraries.COROUTINES_ANDROID)
+    implementation(ExternalLibraries.COROUTINES_PLAY_SERVICES)
 
     // Firebase Dependencies
     implementation(platform(ExternalLibraries.FIREBASE_BOM))
@@ -83,4 +92,7 @@ dependencies {
     // UI Test Dependencies Dependencies
     androidTestImplementation(AndroidTestLibraries.JUNIT_TEST_EXT)
     androidTestImplementation(AndroidTestLibraries.ESPRESSO_CORE)
+
+    // Debug only dependencies
+//    debugImplementation(ExternalLibraries.LEAK_CANARY)
 }

@@ -21,4 +21,13 @@
         <item name="background">?attr/colorPrimary</item>
         <item name="fontFamily">@font/cantata_one</item>
     </style>
+
+    <style name="Theme.Portfolio.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Portfolio.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Portfolio.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
 </resources>

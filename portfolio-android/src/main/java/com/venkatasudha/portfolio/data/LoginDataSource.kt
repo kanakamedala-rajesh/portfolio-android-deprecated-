@@ -1,10 +1,17 @@
 package com.venkatasudha.portfolio.data
 
+import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuth
-import com.venkatasudha.portfolio.entities.LoggedInUser
-import com.venkatasudha.portfolio.entities.Result
-import java.io.IOException
-import java.util.*
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.auth.FirebaseAuthRecentLoginRequiredException
+import com.venkatasudha.portfolio.entities.NetworkRequestStates
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.tasks.await
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -12,15 +19,28 @@ import javax.inject.Inject
  */
 class LoginDataSource @Inject constructor(private val auth: FirebaseAuth) {
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
-        try {
-            // TODO: handle loggedInUser authentication
-            val fakeUser = LoggedInUser(UUID.randomUUID().toString(), username.split("@")[0])
-            return Result.Success(fakeUser)
-        } catch (e: Throwable) {
-            return Result.Error(IOException("Error logging in", e))
-        }
-    }
+    suspend fun emailLogin(email: String, password: String) = flow {
+        emit(NetworkRequestStates.Loading)
+        val loginResultTask = auth.signInWithEmailAndPassword(email, password).await()
+        Timber.i("Login Success")
+        emit(NetworkRequestStates.Success(data = loginResultTask.user!!))
+    }.catch {
+        Timber.e("Login Failed Exception $it")
+        emit(
+            NetworkRequestStates.Failed(
+                it as Exception,
+                when (it) {
+                    is FirebaseAuthInvalidCredentialsException -> NetworkRequestStates.NetworkFailureCauses.LOGIN_FAILURE_INVALID_CREDENTIALS
+                    is FirebaseAuthInvalidUserException -> NetworkRequestStates.NetworkFailureCauses.LOGIN_FAILURE_INVALID_USER
+                    is FirebaseAuthRecentLoginRequiredException -> NetworkRequestStates.NetworkFailureCauses.LOGIN_FAILURE_RE_AUTHENTICATE
+                    is FirebaseTooManyRequestsException -> NetworkRequestStates.NetworkFailureCauses.LOGIN_FAILURE_TOO_MANY_REQUESTS
+                    else -> {
+                        NetworkRequestStates.NetworkFailureCauses.LOGIN_FAILURE_OTHER
+                    }
+                }
+            )
+        )
+    }.flowOn(Dispatchers.IO)
 
     fun logout() {
         // TODO: revoke authentication

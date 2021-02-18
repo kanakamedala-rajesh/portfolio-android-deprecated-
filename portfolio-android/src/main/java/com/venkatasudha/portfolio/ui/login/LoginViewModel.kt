@@ -4,13 +4,16 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.venkatasudha.portfolio.R
 import com.venkatasudha.portfolio.data.LoginRepository
-import com.venkatasudha.portfolio.entities.LoggedInUserView
 import com.venkatasudha.portfolio.entities.LoginFormState
 import com.venkatasudha.portfolio.entities.LoginResult
-import com.venkatasudha.portfolio.entities.Result
+import com.venkatasudha.portfolio.entities.NetworkRequestStates
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,14 +25,17 @@ class LoginViewModel @Inject constructor(private val loginRepository: LoginRepos
     private val _loginResult = MutableLiveData<LoginResult>()
     val loginResult: LiveData<LoginResult> = _loginResult
 
-    fun login(username: String, password: String) {
-        // can be launched in a separate asynchronous job
-        val result = loginRepository.login(username, password)
-
-        if (result is Result.Success) {
-            _loginResult.value = LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
-        } else {
-            _loginResult.value = LoginResult(error = R.string.login_failed)
+    fun login(email: String, password: String) {
+        viewModelScope.launch {
+            loginRepository.performLogin(email, password).collect {
+                when (it) {
+                    is NetworkRequestStates.Success -> _loginResult.value = LoginResult(success = it.data)
+                    is NetworkRequestStates.Failed -> _loginResult.value = LoginResult(error = it)
+                    else -> {
+                        Timber.d("unhandled state $it")
+                    }
+                }
+            }
         }
     }
 
@@ -43,16 +49,14 @@ class LoginViewModel @Inject constructor(private val loginRepository: LoginRepos
         }
     }
 
-    // A placeholder username validation check
     private fun isUserNameValid(username: String): Boolean {
         return if (username.contains('@')) {
             Patterns.EMAIL_ADDRESS.matcher(username).matches()
         } else {
-            username.isNotBlank()
+            false
         }
     }
 
-    // A placeholder password validation check
     private fun isPasswordValid(password: String): Boolean {
         return password.length > 5
     }

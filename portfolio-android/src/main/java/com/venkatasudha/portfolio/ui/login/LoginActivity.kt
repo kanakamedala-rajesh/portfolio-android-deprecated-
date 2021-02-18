@@ -1,6 +1,7 @@
 package com.venkatasudha.portfolio.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,13 +10,13 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import com.google.firebase.auth.FirebaseUser
 import com.venkatasudha.portfolio.R
 import com.venkatasudha.portfolio.databinding.ActivityLoginBinding
-import com.venkatasudha.portfolio.entities.LoggedInUserView
+import com.venkatasudha.portfolio.ui.profile.ProfileActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,9 +37,9 @@ class LoginActivity : AppCompatActivity() {
             if (loginState.usernameError != null) {
                 binding.username.error = getString(loginState.usernameError)
             }
-            if (loginState.passwordError != null) {
-                binding.password.error = getString(loginState.passwordError)
-            }
+//            if (loginState.passwordError != null) {
+//                binding.password.error = getString(loginState.passwordError)
+//            }
         })
 
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
@@ -46,15 +47,12 @@ class LoginActivity : AppCompatActivity() {
 
             binding.loading.visibility = View.GONE
             if (loginResult.error != null) {
-                showLoginFailed(loginResult.error)
+                showLoginFailed(getString(R.string.login_failed, loginResult.error.cause))
             }
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
             }
             setResult(Activity.RESULT_OK)
-
-            //Complete and destroy login activity once successful
-            finish()
         })
 
         binding.username.afterTextChanged {
@@ -93,18 +91,20 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.login(binding.username.text.toString(), binding.password.text.toString())
     }
 
-    private fun updateUiWithUser(model: LoggedInUserView) {
+    private fun updateUiWithUser(user: FirebaseUser) {
         val welcome = getString(R.string.welcome)
-        val displayName = model.displayName
+        val displayName = user.email
         // TODO : initiate successful logged in experience
         Toast.makeText(
             applicationContext,
             "$welcome $displayName",
-            Toast.LENGTH_LONG
+            Toast.LENGTH_SHORT
         ).show()
+        startActivity(Intent(this@LoginActivity, ProfileActivity::class.java))
+        finish()
     }
 
-    private fun showLoginFailed(@StringRes errorString: Int) {
+    private fun showLoginFailed(errorString: String) {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
     }
 }
