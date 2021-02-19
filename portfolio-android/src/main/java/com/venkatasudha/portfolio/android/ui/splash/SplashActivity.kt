@@ -1,9 +1,13 @@
-package com.venkatasudha.portfolio.ui.splash
+package com.venkatasudha.portfolio.android.ui.splash
 
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.view.*
+import android.view.View
+import android.view.Window
+import android.view.WindowInsets
+import android.view.WindowInsetsController
+import android.view.WindowManager
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
@@ -11,9 +15,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
-import com.venkatasudha.portfolio.R
-import com.venkatasudha.portfolio.ui.login.LoginActivity
-import com.venkatasudha.portfolio.ui.profile.ProfileActivity
+import com.venkatasudha.portfolio.android.R
+import com.venkatasudha.portfolio.android.ui.login.LoginActivity
+import com.venkatasudha.portfolio.android.ui.profile.ProfileActivity
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 

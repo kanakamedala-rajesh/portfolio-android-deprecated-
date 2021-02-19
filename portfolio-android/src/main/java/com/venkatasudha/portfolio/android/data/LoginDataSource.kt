@@ -1,11 +1,11 @@
-package com.venkatasudha.portfolio.data
+package com.venkatasudha.portfolio.android.data
 
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseAuthRecentLoginRequiredException
-import com.venkatasudha.portfolio.entities.NetworkRequestStates
+import com.venkatasudha.portfolio.android.entities.NetworkRequestStates
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow

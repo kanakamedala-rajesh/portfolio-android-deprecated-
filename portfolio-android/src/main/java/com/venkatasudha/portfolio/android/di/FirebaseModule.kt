@@ -1,4 +1,4 @@
-package com.venkatasudha.portfolio.di
+package com.venkatasudha.portfolio.android.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth

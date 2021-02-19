@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Portfolio</string>
     <string name="label_logo">logo</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="title_activity_profile">ScrollingActivity</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_profile">Profile</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>

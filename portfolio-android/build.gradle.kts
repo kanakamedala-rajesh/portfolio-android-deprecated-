@@ -11,7 +11,7 @@ android {
     buildToolsVersion(AndroidSdk.BUILD_TOOLS_VERSION)
 
     defaultConfig {
-        applicationId = "com.venkatasudha.portfolio"
+        applicationId = "com.venkatasudha.portfolio.android"
         minSdkVersion(AndroidSdk.MIN_SDK_VERSION)
         targetSdkVersion(AndroidSdk.TARGET_SDK_VERSION)
         versionCode = PORTFOLIO_VERSION_CODE
@@ -57,14 +57,10 @@ android {
     }
 }
 
-configurations {
-    // fix for Leak Canary issue.
-    debugImplementation {
-        exclude("junit", "junit")
-    }
-}
-
 dependencies {
+    // Portfolio Dependencies
+    implementation(project(":portfolio-core"))
+
     // AndroidX Dependencies
     implementation(AndroidxLibraries.CORE_KTX)
     implementation(AndroidxLibraries.APP_COMPAT)
@@ -72,7 +68,7 @@ dependencies {
     implementation(AndroidxLibraries.ACTIVITY_KTX)
 
     // External Dependencies
-    implementation(ExternalLibraries.KOTLIN)
+    implementation(ExternalLibraries.KOTLIN_STDLIB)
     implementation(ExternalLibraries.MATERIAL_DESIGN)
     implementation(ExternalLibraries.TIMBER)
     implementation(ExternalLibraries.HILT_ANDROID)

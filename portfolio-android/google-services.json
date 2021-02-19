@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:218085913482:android:c4de2a8fa54686d5ce0e73",
+        "mobilesdk_app_id": "1:218085913482:android:5763b007296891a1ce0e73",
         "android_client_info": {
-          "package_name": "com.venkatasudha.portfolio"
+          "package_name": "com.venkatasudha.portfolio.android"
         }
       },
       "oauth_client": [

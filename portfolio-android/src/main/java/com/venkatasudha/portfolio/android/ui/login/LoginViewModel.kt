@@ -1,15 +1,15 @@
-package com.venkatasudha.portfolio.ui.login
+package com.venkatasudha.portfolio.android.ui.login
 
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.venkatasudha.portfolio.R
-import com.venkatasudha.portfolio.data.LoginRepository
-import com.venkatasudha.portfolio.entities.LoginFormState
-import com.venkatasudha.portfolio.entities.LoginResult
-import com.venkatasudha.portfolio.entities.NetworkRequestStates
+import com.venkatasudha.portfolio.android.R
+import com.venkatasudha.portfolio.android.data.LoginRepository
+import com.venkatasudha.portfolio.android.entities.LoginFormState
+import com.venkatasudha.portfolio.android.entities.LoginResult
+import com.venkatasudha.portfolio.android.entities.NetworkRequestStates
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

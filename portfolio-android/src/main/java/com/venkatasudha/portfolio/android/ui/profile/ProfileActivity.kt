@@ -1,12 +1,12 @@
-package com.venkatasudha.portfolio.ui.profile
+package com.venkatasudha.portfolio.android.ui.profile
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.snackbar.Snackbar
-import com.venkatasudha.portfolio.R
-import com.venkatasudha.portfolio.databinding.ActivityProfileBinding
+import com.venkatasudha.portfolio.android.R
+import com.venkatasudha.portfolio.android.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding

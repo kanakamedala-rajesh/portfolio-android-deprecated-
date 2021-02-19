@@ -1,4 +1,4 @@
-package com.venkatasudha.portfolio.ui.login
+package com.venkatasudha.portfolio.android.ui.login
 
 import android.app.Activity
 import android.content.Intent
@@ -14,9 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.google.firebase.auth.FirebaseUser
-import com.venkatasudha.portfolio.R
-import com.venkatasudha.portfolio.databinding.ActivityLoginBinding
-import com.venkatasudha.portfolio.ui.profile.ProfileActivity
+import com.venkatasudha.portfolio.android.R
+import com.venkatasudha.portfolio.android.databinding.ActivityLoginBinding
+import com.venkatasudha.portfolio.android.ui.profile.ProfileActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

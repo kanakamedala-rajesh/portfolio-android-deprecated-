@@ -1,7 +1,7 @@
-package com.venkatasudha.portfolio.data
+package com.venkatasudha.portfolio.android.data
 
 import com.google.firebase.auth.FirebaseUser
-import com.venkatasudha.portfolio.entities.NetworkRequestStates
+import com.venkatasudha.portfolio.android.entities.NetworkRequestStates
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

@@ -1,2 +1,3 @@
+include ':portfolio-core'
 include ':portfolio-android'
 rootProject.name = "portfolio"

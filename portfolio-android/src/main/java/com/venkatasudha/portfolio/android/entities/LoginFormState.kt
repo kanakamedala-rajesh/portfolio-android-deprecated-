@@ -1,4 +1,4 @@
-package com.venkatasudha.portfolio.entities
+package com.venkatasudha.portfolio.android.entities
 
 /**
  * Data validation state of the login form.

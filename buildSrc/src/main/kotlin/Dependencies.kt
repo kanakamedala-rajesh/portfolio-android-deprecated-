@@ -33,6 +33,8 @@ object Plugins {
     const val PLUGINS_KOTLIN_KAPT = "kotlin-kapt"
     const val PLUGINS_HILT = "dagger.hilt.android.plugin"
     const val PLUGINS_GOOGLE_SERVICES = "com.google.gms.google-services"
+    const val JAVA_LIBRARY = "java-library"
+    const val KOTLIN = "kotlin"
 }
 
 object AndroidSdk {
@@ -67,7 +69,7 @@ object ExternalLibraries {
         const val COROUTINES_VERSION = "1.3.9"
     }
 
-    const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
+    const val KOTLIN_STDLIB = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
     const val MATERIAL_DESIGN = "com.google.android.material:material:${Versions.MATERIAL_DESIGN_VERSION}"
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER_VERSION}"
     const val HILT_ANDROID = "com.google.dagger:hilt-android:$HILT_VERSION"

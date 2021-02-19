@@ -1,4 +1,4 @@
-package com.venkatasudha.portfolio.entities
+package com.venkatasudha.portfolio.android.entities
 
 sealed class NetworkRequestStates<out T : Any> {
     object Loading : NetworkRequestStates<Nothing>()

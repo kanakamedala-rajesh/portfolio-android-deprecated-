@@ -1,4 +1,4 @@
-package com.venkatasudha.portfolio.entities
+package com.venkatasudha.portfolio.android.entities
 
 /**
  * A generic class that holds a value with its loading status.

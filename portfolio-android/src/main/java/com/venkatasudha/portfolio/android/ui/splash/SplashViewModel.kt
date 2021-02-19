@@ -1,4 +1,4 @@
-package com.venkatasudha.portfolio.ui.splash
+package com.venkatasudha.portfolio.android.ui.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

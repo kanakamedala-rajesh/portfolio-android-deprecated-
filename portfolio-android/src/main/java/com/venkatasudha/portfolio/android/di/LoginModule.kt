@@ -1,8 +1,8 @@
-package com.venkatasudha.portfolio.di
+package com.venkatasudha.portfolio.android.di
 
 import com.google.firebase.auth.FirebaseAuth
-import com.venkatasudha.portfolio.data.LoginDataSource
-import com.venkatasudha.portfolio.data.LoginRepository
+import com.venkatasudha.portfolio.android.data.LoginDataSource
+import com.venkatasudha.portfolio.android.data.LoginRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
